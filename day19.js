@@ -31,7 +31,7 @@ app.listen(3000, () => {
 
 app.use(express.json());
 
-app.get("/youtubers/:id", function (req, res) {
+app.get("/youtubers/:id", (req, res) => {
   let { id } = req.params;
 
   id = parseInt(id);
@@ -50,7 +50,7 @@ app.get("/youtubers/:id", function (req, res) {
   res.json(youtuber);
 });
 
-app.get("/youtubers", function (req, res) {
+app.get("/youtubers", (req, res) => {
   if (db.size === 0) {
     res.status(404).json({
       errorMessage: "유튜버가 없습니다.",
@@ -61,7 +61,7 @@ app.get("/youtubers", function (req, res) {
   res.json(Array.from(db.values()));
 });
 
-app.post("/youtubers", function (req, res) {
+app.post("/youtubers", (req, res) => {
   const { channelTitle, sub, videoNum } = req.body;
 
   if (!channelTitle) {
@@ -85,7 +85,7 @@ app.post("/youtubers", function (req, res) {
   });
 });
 
-app.post("/youtubers/:id", function (req, res) {
+app.post("/youtubers/:id", (req, res) => {
   let { id } = req.params;
 
   id = parseInt(id);
@@ -119,7 +119,7 @@ app.post("/youtubers/:id", function (req, res) {
   });
 });
 
-app.delete("/youtubers/:id", function (req, res) {
+app.delete("/youtubers/:id", (req, res) => {
   let { id } = req.params;
 
   id = parseInt(id);
@@ -140,7 +140,7 @@ app.delete("/youtubers/:id", function (req, res) {
   });
 });
 
-app.delete("/youtubers", function (req, res) {
+app.delete("/youtubers", (req, res) => {
   if (db.size === 0) {
     res.status(404).json({
       errorMessage: "삭제할 유튜버가 없습니다.",
