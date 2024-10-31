@@ -1,0 +1,20 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #282c34;
+  color: white;
+  text-align: center;
+}
+
+.board {
+  background-color: white;
+  color: black;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+input {
+  margin-right: 10px;
+  writing-mode: horizontal-tb;
+}
